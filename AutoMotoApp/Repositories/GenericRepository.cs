@@ -2,8 +2,10 @@
 {
     using AutoMotoApp.Entities;
     
-    public class GenericRepository<T> where T : IEntity
+    public class GenericRepository<T, TKey> where T : IEntity
     {
+        public TKey? Key { get; set; }
+        
         protected readonly List<T> _items = new();
 
         public void Add(T item)
