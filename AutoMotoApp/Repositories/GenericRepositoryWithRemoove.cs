@@ -4,7 +4,7 @@ using AutoMotoApp.Entities;
 
 public class GenericRepositoryWithRemoove<TEntity, TKey>
     : GenericRepository<TEntity, TKey> 
-    where TEntity : class, IEntity
+    where TEntity : class, IEntity, new()
     where TKey : struct
 {
     public void Remoove(TEntity item)

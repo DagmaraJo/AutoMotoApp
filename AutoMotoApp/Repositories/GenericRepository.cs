@@ -3,7 +3,7 @@
     using AutoMotoApp.Entities;
     
     public class GenericRepository<TEntity, TKey> 
-        where TEntity : class, IEntity
+        where TEntity : class, IEntity, new()
         where TKey : struct
     {
         public TKey? Key { get; set; }
@@ -29,6 +29,11 @@
             {
                 Console.WriteLine(employee);
             }
+        }
+
+        public TEntity CreateNewItem(TEntity item)
+        {
+            return new TEntity();
         }
     }
 }
