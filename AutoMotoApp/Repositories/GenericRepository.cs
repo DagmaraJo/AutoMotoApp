@@ -2,7 +2,9 @@
 {
     using AutoMotoApp.Entities;
     
-    public class GenericRepository<TEntity, TKey> where TEntity : class, IEntity
+    public class GenericRepository<TEntity, TKey> 
+        where TEntity : class, IEntity
+        where TKey : struct
     {
         public TKey? Key { get; set; }
         
