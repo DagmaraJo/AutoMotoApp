@@ -2,21 +2,23 @@
 {
     using AutoMotoApp.Entities;
     
-    public class GenericRepository<T, TKey> where T : IEntity
+    public class GenericRepository<TEntity, TKey> where TEntity : class, IEntity
     {
         public TKey? Key { get; set; }
         
-        protected readonly List<T> _items = new();
+        protected readonly List<TEntity> _items = new();
 
-        public void Add(T item)
+        public void Add(TEntity item)
         {
             item.Id = _items.Count + 1;
             _items.Add(item);
         }
 
-        public T GetById(int id)
+        public TEntity GetById(int id)
         {
-            return _items.Single(item => item.Id == id);
+            //return _items.Single(item => item.Id == id);
+            return null;
+            return default(TEntity);    
         }
 
         public void Save()
