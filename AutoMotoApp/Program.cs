@@ -1,11 +1,11 @@
 ﻿using AutoMotoApp;
 
-var stack = new BasicStack<double>();
+var stack = new Stack<double>();
 stack.Push(4.5);
 stack.Push(45);
 stack.Push(245);
 
-var stackString = new BasicStack<string>();
+var stackString = new Stack<string>();
 stackString.Push("Company");
 stackString.Push("Company1");
 stackString.Push("Company2");
