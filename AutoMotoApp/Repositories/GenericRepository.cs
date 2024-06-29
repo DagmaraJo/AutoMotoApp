@@ -1,5 +1,5 @@
 ﻿namespace AutoMotoApp.Repositories
-{
+{    //this class is no longer needed - rubbish !
     using AutoMotoApp.Entities;
     
     public class GenericRepository<TEntity, TKey> 
@@ -18,8 +18,8 @@
 
         public TEntity GetById(int id)
         {
-            //return _items.Single(item => item.Id == id);
-            return null;
+            return _items.Single(item => item.Id == id);
+            //return null;
             return default(TEntity);    
         }
 
@@ -34,6 +34,11 @@
         public TEntity CreateNewItem(TEntity item)
         {
             return new TEntity();
+        }
+
+        public void Remove(TEntity item)
+        {
+            _items.Remove(item);
         }
     }
 }

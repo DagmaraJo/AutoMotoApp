@@ -1,9 +1,11 @@
 ﻿using AutoMotoApp.Entities;
 using AutoMotoApp.Repositories;
-
-
-var employeeRepository = new GenericRepository<Employee, Guid>();
-employeeRepository.Add(new Employee { FirstName = "Adam" });
-employeeRepository.Add(new Employee { FirstName = "Piotr" });
-employeeRepository.Add(new Employee { FirstName = "Zuzia" });
-employeeRepository.Save();
+using AutoMotoApp.Data;
+//var employeeRepository = new SqlRepository(new AutoMotoAppDbContext());
+var sqlRepository = new SqlRepository(new AutoMotoAppDbContext());
+sqlRepository.Add(new Employee { FirstName = "Adam" });
+sqlRepository.Add(new Employee { FirstName = "Piotr" });
+sqlRepository.Add(new Employee { FirstName = "Zuzia" });
+sqlRepository.Save();
+var emp = sqlRepository.GetById(1);
+Console.WriteLine(emp.ToString());
